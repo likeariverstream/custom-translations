@@ -1,12 +1,17 @@
 import express from 'express'
 import config from 'config'
-import { authRouter } from './components/auth/router.js'
+import { usersRouter } from './components/users/router.js'
+import { database } from './libs/database.js'
 
 const app = express()
 
 app.use(express.json())
 
-app.use(authRouter)
+database.connect()
+  .then(() => console.log('Database connected'))
+  .catch((error) => console.log(`Connected error: ${error}`))
+
+app.use(usersRouter)
 
 const port = config.get('SERVER.PORT')
 app.listen(port, () => console.log(`Server started on ${port}`))
