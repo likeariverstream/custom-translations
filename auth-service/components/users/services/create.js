@@ -1,6 +1,6 @@
-import { database } from '../../../libs/database.js'
+import { database } from '~libs/database.js'
 import pgPromise from 'pg-promise'
-import { sha256 } from '../../../utils/sha-256.js'
+import { sha256 } from '~utils/sha-256.js'
 
 const { ParameterizedQuery } = pgPromise()
 

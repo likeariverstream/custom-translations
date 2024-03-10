@@ -1,5 +1,6 @@
 import { BaseController } from '../../../base-classes/base-controller.js'
 import { createUserService } from '../services/index.js'
+import { getUserByEmailService } from '../services/index.js'
 
 class CreateUserController extends BaseController {
 
@@ -19,7 +20,14 @@ class CreateUserController extends BaseController {
   }
 
   async controller(req) {
-    const { name, surname, email, password, role = 'user' } = req.body
+
+    const { name, surname, email, password, role } = req.body
+
+    const existingUser = await getUserByEmailService(email)
+
+    if (existingUser) {
+      throw new Error('User already exist')
+    }
 
     const userData = {
       name,

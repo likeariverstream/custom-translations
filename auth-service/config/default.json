@@ -10,9 +10,16 @@
     "NAME": "auth_service",
     "MAX": 100
   },
+  "REDIS": {
+    "HOST": "localhost",
+    "PORT": 6379,
+    "USERNAME": "default",
+    "PASSWORD": "root",
+    "DB": 0
+  },
   "AUTH": {
     "PASSWORD_KEY": "PASSWORD_SECRET_KEY",
-    "TOKEN_KEY": "TOKEN_SECRET_KEY",
+    "ACCESS_TOKEN_KEY": "ACCESS_TOKEN_SECRET_KEY",
     "REFRESH_TOKEN_KEY": "REFRESH_TOKEN_SECRET_KEY"
   }
 }
